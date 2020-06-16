@@ -24,7 +24,7 @@ web_timeout = 30
 totp = pyotp.TOTP(args.otp)
 
 # modify otp URL
-otp_url = url + "/otp"
+otp_url = 'https://' + url + '/otp'
 
 # set the chrome driver options
 chrome_options = Options()
@@ -38,7 +38,7 @@ driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=chrome_
 driver.set_page_load_timeout(web_timeout)
 
 try:
-    driver.get(url)
+    driver.get('https://'+ url)
     time.sleep(5)
 except TimeoutException:
     exceptioncount = exceptioncount + 1
